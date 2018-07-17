@@ -1,4 +1,4 @@
-using System.IO;
+ï»¿using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
@@ -40,7 +40,7 @@ namespace AlexaFunction
                         response = NowDate();
                         break;
                     default:
-                        response = ResponseBuilder.Tell("‚·‚İ‚Ü‚¹‚ñ‚ª•·‚«æ‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+                        response = ResponseBuilder.Tell("ã™ã¿ã¾ã›ã‚“ãŒèãå–ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
                         break;
 
                 }
@@ -57,7 +57,7 @@ namespace AlexaFunction
         {
             var now = DateTime.Now;
             var date = new SayAs(now.ToString("????MMdd"), InterpretAs.Date);
-            var speech = new Speech(new PlainText("¡“ú‚Í"), date, new PlainText("‚Å‚·B"));
+            var speech = new Speech(new PlainText("ä»Šæ—¥ã¯"), date, new PlainText("ã§ã™ã€‚"));
 
             var output = new SsmlOutputSpeech()
             {
@@ -73,10 +73,10 @@ namespace AlexaFunction
 
             var output = new PlainTextOutputSpeech()
             {
-                Text = "TestApp‚Ö‚æ‚¤‚±‚»B"
+                Text = "TestAppã¸ã‚ˆã†ã“ãã€‚\nä½•ã«ã¤ã„ã¦èããŸã„ã§ã™ã‹?"
             };
 
-            var reprompt = new Reprompt("‰½‚É‚Â‚¢‚Ä•·‚«‚½‚¢‚Å‚·‚©H");
+            var reprompt = new Reprompt("ä½•ã«ã¤ã„ã¦èããŸã„ã§ã™ã‹?");
 
             return ResponseBuilder.AskWithCard(output, "TestApp", "test", reprompt);
 
